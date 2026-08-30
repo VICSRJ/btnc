@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dashboard — Exported from UXMagic Copilot">
+    <title>Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Poppins:wght@100..900&amp;family=Fira+Code:wght@300..700&amp;family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js"></script>
+    <style type="text/tailwindcss">
+      @import "tailwindcss";
+      @theme inline {
+        --color-background: var(--background);
+        --color-foreground: var(--foreground);
+        --color-primary: var(--primary);
+        --color-primary-foreground: var(--primary-foreground);
+        --color-secondary: var(--secondary);
+        --color-secondary-foreground: var(--secondary-foreground);
+        --color-tertiary: var(--tertiary);
+        --color-muted: var(--muted);
+        --color-muted-foreground: var(--muted-foreground);
+        --color-accent: var(--accent);
+        --color-destructive: var(--destructive);
+        --color-card: var(--card);
+        --color-card-foreground: var(--card-foreground);
+        --color-border: var(--border);
+        --color-input: var(--input);
+        --color-ring: var(--ring);
+        --radius-sm: calc(var(--radius) - 4px);
+        --radius-md: calc(var(--radius) - 2px);
+        --radius-lg: var(--radius);
+        --font-family-sans: var(--font-sans);
+        --font-family-heading: var(--font-heading);
+      }
+      :root {
+        --card: #ffffff;
+        --border: #e2e8f0;
+        --tertiary: #f59e0b;
+        --foreground: #0f172a;
+        --background: #f8fafc;
+        --primary: #059669;
+        --radius: 0.75rem;
+        --ring: #10b981;
+        --secondary: #f1f5f9;
+        --input: #f1f5f9;
+        }
+    </style>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div data-page="dashboard">
+
+<div class="min-h-screen w-full bg-background flex flex-col relative font-sans text-foreground">
+  <!-- Header -->
+  <header class="bg-card border-b border-border px-4 py-3 sticky top-0 z-10 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <button class="p-2 -ml-2 text-muted-foreground hover:text-foreground">
+        <iconify-icon icon="lucide:menu" class="text-2xl"></iconify-icon>
+      </button>
+      <h1 class="text-lg font-heading font-bold text-primary tracking-tight">BOTANIC EVI</h1>
+    </div>
+    <div class="flex items-center gap-4">
+      <div class="flex items-center gap-1.5 text-xs font-medium text-primary bg-primary/10 px-2 py-1 rounded-full">
+        <iconify-icon icon="lucide:refresh-cw" class="text-sm"></iconify-icon>
+        <span>Sync ✓</span>
+      </div>
+      <button class="w-8 h-8 rounded-full bg-secondary flex items-center justify-center text-muted-foreground">
+        <iconify-icon icon="lucide:user" class="text-xl"></iconify-icon>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-1 p-4 space-y-6 max-h-[800px] overflow-y-auto">
+    <!-- Welcome & Sync Status -->
+    <section class="space-y-1">
+      <h2 class="text-xl font-heading font-bold">Dobrý den, Novák</h2>
+      <p class="text-sm text-muted-foreground flex items-center gap-1.5">
+        <iconify-icon icon="lucide:clock" class="text-xs"></iconify-icon>
+        Poslední synchronizace 10:32
+      </p>
+    </section>
+
+    <!-- Urgent Notifications -->
+    <section class="space-y-3">
+      <div class="flex items-center justify-between">
+        <h3 class="text-xs font-bold uppercase tracking-wider text-muted-foreground">Upozornění</h3>
+        <button class="text-xs font-semibold text-primary">Zobrazit vše</button>
+      </div>
+      <div class="grid grid-cols-2 gap-3">
+        <div class="bg-card p-4 rounded-xl border border-border shadow-sm flex flex-col gap-1">
+          <div class="flex items-center gap-2 text-tertiary">
+            <iconify-icon icon="lucide:circle-alert" class="text-lg"></iconify-icon>
+            <span class="text-2xl font-bold">5</span>
+          </div>
+          <span class="text-sm font-medium text-muted-foreground">Prázdné</span>
+        </div>
+        <div class="bg-card p-4 rounded-xl border border-border shadow-sm flex flex-col gap-1">
+          <div class="flex items-center gap-2 text-orange-500">
+            <iconify-icon icon="lucide:hourglass" class="text-lg"></iconify-icon>
+            <span class="text-2xl font-bold">3</span>
+          </div>
+          <span class="text-sm font-medium text-muted-foreground">Expirace</span>
+        </div>
+      </div>
+      <div class="bg-destructive/10 border border-destructive/20 p-3 rounded-lg flex items-center gap-3">
+        <iconify-icon icon="lucide:circle-x" class="text-destructive text-xl"></iconify-icon>
+        <span class="text-sm font-semibold text-destructive">1 Expirovaný pack</span>
+      </div>
+    </section>
+
+    <!-- Quick Actions -->
+    <section class="space-y-3">
+      <h3 class="text-xs font-bold uppercase tracking-wider text-muted-foreground">Rychlé akce</h3>
+      <div class="grid grid-cols-2 gap-3">
+        <button class="bg-card hover:bg-secondary border border-border p-4 rounded-xl shadow-sm flex flex-col items-center gap-2 transition-colors">
+          <div class="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center">
+            <iconify-icon icon="lucide:log-out" class="text-xl"></iconify-icon>
+          </div>
+          <span class="text-sm font-semibold">Výdej</span>
+        </button>
+        <button class="bg-card hover:bg-secondary border border-border p-4 rounded-xl shadow-sm flex flex-col items-center gap-2 transition-colors">
+          <div class="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center">
+            <iconify-icon icon="lucide:log-in" class="text-xl"></iconify-icon>
+          </div>
+          <span class="text-sm font-semibold">Příjem</span>
+        </button>
+        <button class="bg-card hover:bg-secondary border border-border p-4 rounded-xl shadow-sm flex flex-col items-center gap-2 transition-colors">
+          <div class="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center">
+            <iconify-icon icon="lucide:move" class="text-xl"></iconify-icon>
+          </div>
+          <span class="text-sm font-semibold">Přesun packu</span>
+        </button>
+        <button class="bg-card hover:bg-secondary border border-border p-4 rounded-xl shadow-sm flex flex-col items-center gap-2 transition-colors">
+          <div class="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center">
+            <iconify-icon icon="lucide:layers" class="text-xl"></iconify-icon>
+          </div>
+          <span class="text-sm font-semibold">Přesun boxu</span>
+        </button>
+      </div>
+      <button class="w-full bg-primary text-primary-foreground py-4 rounded-xl font-bold shadow-lg shadow-primary/20 flex items-center justify-center gap-2 active:scale-[0.98] transition-all">
+        <iconify-icon icon="lucide:grid-3x3" class="text-xl"></iconify-icon>
+        Přehled skladu
+      </button>
+    </section>
+
+    <!-- Stats -->
+    <section class="bg-card border border-border rounded-xl p-4 shadow-sm space-y-4">
+      <h3 class="text-xs font-bold uppercase tracking-wider text-muted-foreground">Statistiky</h3>
+      <div class="grid grid-cols-2 gap-y-4 gap-x-8">
+        <div class="flex justify-between items-center border-b border-border/50 pb-2">
+          <span class="text-sm text-muted-foreground">Suroviny</span>
+          <span class="font-bold">185</span>
+        </div>
+        <div class="flex justify-between items-center border-b border-border/50 pb-2">
+          <span class="text-sm text-muted-foreground">Packy</span>
+          <span class="font-bold">742</span>
+        </div>
+        <div class="flex justify-between items-center border-b border-border/50 pb-2">
+          <span class="text-sm text-muted-foreground">Boxy</span>
+          <span class="font-bold">85</span>
+        </div>
+        <div class="flex justify-between items-center border-b border-border/50 pb-2">
+          <span class="text-sm text-muted-foreground">Pozice</span>
+          <span class="font-bold">42</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Bottom Nav (Mobile) -->
+  <nav class="bg-card border-t border-border px-6 py-2 flex justify-between items-center sticky bottom-0">
+    <button class="flex flex-col items-center gap-1 text-primary">
+      <iconify-icon icon="lucide:layout-dashboard" class="text-xl"></iconify-icon>
+      <span class="text-[10px] font-bold">Domů</span>
+    </button>
+    <button class="flex flex-col items-center gap-1 text-muted-foreground hover:text-foreground">
+      <iconify-icon icon="lucide:search" class="text-xl"></iconify-icon>
+      <span class="text-[10px] font-medium">Hledat</span>
+    </button>
+    <button class="flex flex-col items-center gap-1 text-muted-foreground hover:text-foreground">
+      <iconify-icon icon="lucide:history" class="text-xl"></iconify-icon>
+      <span class="text-[10px] font-medium">Historie</span>
+    </button>
+    <button class="flex flex-col items-center gap-1 text-muted-foreground hover:text-foreground">
+      <iconify-icon icon="lucide:settings" class="text-xl"></iconify-icon>
+      <span class="text-[10px] font-medium">Nastavení</span>
+    </button>
+  </nav>
+</div>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

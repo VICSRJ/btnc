@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Výdej (Issuance) — Exported from UXMagic Copilot">
+    <title>Výdej (Issuance)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Poppins:wght@100..900&amp;family=Fira+Code:wght@300..700&amp;family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js"></script>
+    <style type="text/tailwindcss">
+      @import "tailwindcss";
+      @theme inline {
+        --color-background: var(--background);
+        --color-foreground: var(--foreground);
+        --color-primary: var(--primary);
+        --color-primary-foreground: var(--primary-foreground);
+        --color-secondary: var(--secondary);
+        --color-secondary-foreground: var(--secondary-foreground);
+        --color-tertiary: var(--tertiary);
+        --color-muted: var(--muted);
+        --color-muted-foreground: var(--muted-foreground);
+        --color-accent: var(--accent);
+        --color-destructive: var(--destructive);
+        --color-card: var(--card);
+        --color-card-foreground: var(--card-foreground);
+        --color-border: var(--border);
+        --color-input: var(--input);
+        --color-ring: var(--ring);
+        --radius-sm: calc(var(--radius) - 4px);
+        --radius-md: calc(var(--radius) - 2px);
+        --radius-lg: var(--radius);
+        --font-family-sans: var(--font-sans);
+        --font-family-heading: var(--font-heading);
+      }
+      :root {
+        --card: #ffffff;
+        --border: #e2e8f0;
+        --tertiary: #f59e0b;
+        --foreground: #0f172a;
+        --background: #f8fafc;
+        --primary: #059669;
+        --radius: 0.75rem;
+        --ring: #10b981;
+        --secondary: #f1f5f9;
+        --input: #f1f5f9;
+        }
+    </style>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div data-page="v-dej-issuance">
+
+<div class="min-h-screen w-full bg-background flex flex-col relative font-sans text-foreground">
+  <!-- Header -->
+  <header class="bg-card border-b border-border px-4 py-3 sticky top-0 z-10 flex items-center gap-4">
+    <button class="p-2 -ml-2 text-muted-foreground hover:text-foreground">
+      <iconify-icon icon="lucide:arrow-left" class="text-2xl"></iconify-icon>
+    </button>
+    <h1 class="text-lg font-heading font-bold">Výdej</h1>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-1 p-4 space-y-6 max-h-[800px] overflow-y-auto">
+    <!-- Search -->
+    <div class="relative">
+      <iconify-icon icon="lucide:search" class="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground"></iconify-icon>
+      <input type="text" placeholder="Vyhledat surovinu nebo ID packu" class="w-full bg-input border border-border rounded-xl py-3 pl-10 pr-4 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all">
+    </div>
+
+    <!-- Recommendations -->
+    <section class="space-y-3">
+      <h2 class="text-xs font-bold uppercase tracking-wider text-muted-foreground">Doporučené packy (FIFO)</h2>
+      <div class="space-y-3">
+        <!-- Pack 1 -->
+        <div class="bg-card border-2 border-primary/20 p-4 rounded-xl shadow-sm flex flex-col gap-2 relative overflow-hidden group active:bg-secondary transition-colors">
+          <div class="absolute top-0 right-0 bg-primary/10 text-primary text-[10px] font-bold px-2 py-0.5 rounded-bl-lg uppercase">Nejstarší</div>
+          <div class="flex justify-between items-start">
+            <div>
+              <span class="text-lg font-bold">Z3R4</span>
+              <p class="text-sm text-muted-foreground">Měsíček lékařský</p>
+            </div>
+            <span class="text-lg font-black">0.8 kg</span>
+          </div>
+          <div class="flex items-center gap-1.5 text-tertiary text-xs font-bold">
+            <iconify-icon icon="lucide:circle-alert"></iconify-icon>
+            <span>téměř prázdný</span>
+          </div>
+        </div>
+
+        <!-- Pack 2 -->
+        <div class="bg-card border border-border p-4 rounded-xl shadow-sm flex flex-col gap-2 active:bg-secondary transition-colors">
+          <div class="flex justify-between items-start">
+            <div>
+              <span class="text-lg font-bold">B7K2</span>
+              <p class="text-sm text-muted-foreground">Měsíček lékařský</p>
+            </div>
+            <span class="text-lg font-black">8.2 kg</span>
+          </div>
+          <div class="flex items-center gap-1.5 text-orange-500 text-xs font-bold">
+            <iconify-icon icon="lucide:clock"></iconify-icon>
+            <span>Expiruje za 5 dní</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Selected Pack Details -->
+    <section class="bg-card border border-border rounded-xl p-4 shadow-sm space-y-4">
+      <h3 class="text-xs font-bold uppercase tracking-wider text-muted-foreground">Vybraný pack: Z3R4</h3>
+      <div class="grid grid-cols-2 gap-4">
+        <div>
+          <span class="text-[10px] text-muted-foreground uppercase block">Aktuální hm.</span>
+          <span class="font-bold">0.8 kg</span>
+        </div>
+        <div>
+          <span class="text-[10px] text-muted-foreground uppercase block">LOT</span>
+          <span class="font-bold">145</span>
+        </div>
+        <div>
+          <span class="text-[10px] text-muted-foreground uppercase block">Box</span>
+          <span class="font-bold">BOX-42</span>
+        </div>
+        <div>
+          <span class="text-[10px] text-muted-foreground uppercase block">Pozice</span>
+          <span class="font-bold">A12-3</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Form -->
+    <section class="space-y-4">
+      <div class="space-y-2">
+        <label class="text-sm font-bold">Odebrat (kg)</label>
+        <div class="relative">
+          <input type="number" step="0.1" placeholder="0.0" class="w-full bg-input border border-border rounded-xl py-4 px-4 text-xl font-bold focus:outline-none focus:ring-2 focus:ring-primary/20">
+          <span class="absolute right-4 top-1/2 -translate-y-1/2 font-bold text-muted-foreground">kg</span>
+        </div>
+      </div>
+      <div class="space-y-2">
+        <label class="text-sm font-bold">Poznámka</label>
+        <textarea placeholder="Důvod výdeje, šarže výrobku..." class="w-full bg-input border border-border rounded-xl py-3 px-4 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 min-h-[80px]"></textarea>
+      </div>
+    </section>
+  </main>
+
+  <!-- Action Footer -->
+  <footer class="p-4 bg-card border-t border-border sticky bottom-0">
+    <button class="w-full bg-primary text-primary-foreground py-4 rounded-xl font-bold shadow-lg shadow-primary/20 flex items-center justify-center gap-2 active:scale-[0.98] transition-all">
+      <iconify-icon icon="lucide:check-circle" class="text-xl"></iconify-icon>
+      POTVRDIT VÝDEJ
+    </button>
+  </footer>
+</div>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Přehled skladu (Warehouse Overview) — Exported from UXMagic Copilot">
+    <title>Přehled skladu (Warehouse Overview)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Poppins:wght@100..900&amp;family=Fira+Code:wght@300..700&amp;family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js"></script>
+    <style type="text/tailwindcss">
+      @import "tailwindcss";
+      @theme inline {
+        --color-background: var(--background);
+        --color-foreground: var(--foreground);
+        --color-primary: var(--primary);
+        --color-primary-foreground: var(--primary-foreground);
+        --color-secondary: var(--secondary);
+        --color-secondary-foreground: var(--secondary-foreground);
+        --color-tertiary: var(--tertiary);
+        --color-muted: var(--muted);
+        --color-muted-foreground: var(--muted-foreground);
+        --color-accent: var(--accent);
+        --color-destructive: var(--destructive);
+        --color-card: var(--card);
+        --color-card-foreground: var(--card-foreground);
+        --color-border: var(--border);
+        --color-input: var(--input);
+        --color-ring: var(--ring);
+        --radius-sm: calc(var(--radius) - 4px);
+        --radius-md: calc(var(--radius) - 2px);
+        --radius-lg: var(--radius);
+        --font-family-sans: var(--font-sans);
+        --font-family-heading: var(--font-heading);
+      }
+      :root {
+        --card: #ffffff;
+        --border: #e2e8f0;
+        --tertiary: #f59e0b;
+        --foreground: #0f172a;
+        --background: #f8fafc;
+        --primary: #059669;
+        --radius: 0.75rem;
+        --ring: #10b981;
+        --secondary: #f1f5f9;
+        --input: #f1f5f9;
+        }
+    </style>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div data-page="p-ehled-skladu-warehouse-overview">
+
+<div class="min-h-screen w-full bg-background flex flex-col relative font-sans text-foreground">
+  <!-- Header -->
+  <header class="bg-card border-b border-border px-4 py-3 sticky top-0 z-10 space-y-3">
+    <div class="flex items-center justify-between">
+      <h1 class="text-lg font-heading font-bold">Přehled skladu</h1>
+      <button class="w-8 h-8 rounded-lg bg-secondary flex items-center justify-center">
+        <iconify-icon icon="lucide:funnel" class="text-lg"></iconify-icon>
+      </button>
+    </div>
+    <!-- Search -->
+    <div class="relative">
+      <iconify-icon icon="lucide:search" class="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground"></iconify-icon>
+      <input type="text" placeholder="Hledat surovinu, box, pack..." class="w-full bg-input border border-border rounded-xl py-2.5 pl-10 pr-4 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all">
+    </div>
+    <!-- Quick Filters -->
+    <div class="flex gap-2 overflow-x-auto pb-1 no-scrollbar">
+      <button class="whitespace-nowrap px-3 py-1.5 rounded-full bg-primary text-primary-foreground text-xs font-bold">Vše</button>
+      <button class="whitespace-nowrap px-3 py-1.5 rounded-full bg-secondary border border-border text-muted-foreground text-xs font-medium flex items-center gap-1.5">
+        <iconify-icon icon="lucide:circle-alert" class="text-tertiary"></iconify-icon>
+        Téměř prázdné
+      </button>
+      <button class="whitespace-nowrap px-3 py-1.5 rounded-full bg-secondary border border-border text-muted-foreground text-xs font-medium flex items-center gap-1.5">
+        <iconify-icon icon="lucide:hourglass" class="text-orange-500"></iconify-icon>
+        Expirace
+      </button>
+      <button class="whitespace-nowrap px-3 py-1.5 rounded-full bg-secondary border border-border text-muted-foreground text-xs font-medium">Otevřené</button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-1 max-h-[800px] overflow-y-auto">
+    <!-- Material Group 1 -->
+    <section class="border-b border-border">
+      <button class="w-full px-4 py-4 flex items-center justify-between bg-card active:bg-secondary">
+        <div class="flex flex-col items-start">
+          <span class="text-base font-bold">Měsíček lékařský</span>
+          <span class="text-xs text-muted-foreground">Celkem 33.2 kg • 3 packy</span>
+        </div>
+        <iconify-icon icon="lucide:chevron-down" class="text-muted-foreground"></iconify-icon>
+      </button>
+      
+      <!-- Box level -->
+      <div class="bg-secondary/30">
+        <div class="px-4 py-2 flex items-center gap-2 border-b border-border/50">
+          <iconify-icon icon="lucide:layers" class="text-primary text-sm"></iconify-icon>
+          <span class="text-xs font-bold text-muted-foreground uppercase tracking-wider">BOX-42</span>
+        </div>
+        
+        <!-- Packs -->
+        <div class="divide-y divide-border/50">
+          <div class="px-4 py-3 flex items-center justify-between bg-card/50 active:bg-secondary transition-colors">
+            <div class="flex items-center gap-4">
+              <span class="font-mono font-bold text-sm">Z3R4</span>
+              <div class="flex flex-col">
+                <span class="text-sm font-bold">0.8 kg</span>
+                <span class="text-[10px] text-tertiary font-bold flex items-center gap-1">
+                  <iconify-icon icon="lucide:circle-alert"></iconify-icon> Téměř prázdný
+                </span>
+              </div>
+            </div>
+            <iconify-icon icon="lucide:chevron-right" class="text-muted-foreground"></iconify-icon>
+          </div>
+          
+          <div class="px-4 py-3 flex items-center justify-between bg-card/50 active:bg-secondary transition-colors">
+            <div class="flex items-center gap-4">
+              <span class="font-mono font-bold text-sm">B7K2</span>
+              <div class="flex flex-col">
+                <span class="text-sm font-bold">8.2 kg</span>
+                <span class="text-[10px] text-orange-500 font-bold flex items-center gap-1">
+                  <iconify-icon icon="lucide:hourglass"></iconify-icon> Expiruje (5d)
+                </span>
+              </div>
+            </div>
+            <iconify-icon icon="lucide:chevron-right" class="text-muted-foreground"></iconify-icon>
+          </div>
+
+          <div class="px-4 py-3 flex items-center justify-between bg-card/50 active:bg-secondary transition-colors">
+            <div class="flex items-center gap-4">
+              <span class="font-mono font-bold text-sm">C4M1</span>
+              <div class="flex flex-col">
+                <span class="text-sm font-bold">25.0 kg</span>
+                <span class="text-[10px] text-muted-foreground">Skladem</span>
+              </div>
+            </div>
+            <iconify-icon icon="lucide:chevron-right" class="text-muted-foreground"></iconify-icon>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Material Group 2 -->
+    <section class="border-b border-border">
+      <button class="w-full px-4 py-4 flex items-center justify-between bg-card active:bg-secondary">
+        <div class="flex flex-col items-start">
+          <span class="text-base font-bold">Heřmánek pravý</span>
+          <span class="text-xs text-muted-foreground">Celkem 12.5 kg • 1 pack</span>
+        </div>
+        <iconify-icon icon="lucide:chevron-right" class="text-muted-foreground"></iconify-icon>
+      </button>
+    </section>
+
+    <!-- Material Group 3 -->
+    <section class="border-b border-border">
+      <button class="w-full px-4 py-4 flex items-center justify-between bg-card active:bg-secondary">
+        <div class="flex flex-col items-start">
+          <span class="text-base font-bold">Meduňka lékařská</span>
+          <span class="text-xs text-muted-foreground">Celkem 45.0 kg • 2 packy</span>
+        </div>
+        <iconify-icon icon="lucide:chevron-right" class="text-muted-foreground"></iconify-icon>
+      </button>
+    </section>
+  </main>
+
+  <!-- Bottom Nav -->
+  <nav class="bg-card border-t border-border px-6 py-2 flex justify-between items-center sticky bottom-0">
+    <button class="flex flex-col items-center gap-1 text-muted-foreground">
+      <iconify-icon icon="lucide:layout-dashboard" class="text-xl"></iconify-icon>
+      <span class="text-[10px] font-medium">Domů</span>
+    </button>
+    <button class="flex flex-col items-center gap-1 text-primary">
+      <iconify-icon icon="lucide:grid-3x3" class="text-xl"></iconify-icon>
+      <span class="text-[10px] font-bold">Sklad</span>
+    </button>
+    <button class="flex flex-col items-center gap-1 text-muted-foreground">
+      <iconify-icon icon="lucide:history" class="text-xl"></iconify-icon>
+      <span class="text-[10px] font-medium">Historie</span>
+    </button>
+    <button class="flex flex-col items-center gap-1 text-muted-foreground">
+      <iconify-icon icon="lucide:settings" class="text-xl"></iconify-icon>
+      <span class="text-[10px] font-medium">Nastavení</span>
+    </button>
+  </nav>
+</div>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
