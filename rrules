@@ -1,0 +1,28 @@
+# Botanic Inventory Management P — Cursor AI Rules
+
+## Project Context
+Multi-page UI project exported from UXMagic Copilot.
+Each HTML page uses Tailwind CSS v4 (browser runtime) with an inline @theme block.
+
+## File Structure
+- Dashboard.html
+- Výdej (Issuance).html
+- Příjem (Receipt).html
+- Přesun packu (Pack Move).html
+- Přesun boxu (Box Move).html
+- Přehled skladu (Warehouse Overview).html
+- Detail packu (Pack Detail).html
+- Detail suroviny (Material Detail).html
+- Historie (History).html
+- styles.css   (shared — :root theme vars + scoped page styles)
+- script.js    (shared — utilities + per-page IIFE blocks)
+- package.json
+- .cursorrules
+- README.md
+
+## Key Rules
+- The <style type="text/tailwindcss"> block in each HTML file defines the theme.
+  DO NOT move it to styles.css — the Tailwind v4 browser runtime reads it inline.
+- Page content is wrapped in <div data-page="..."> for CSS scoping.
+- Use Tailwind utility classes (bg-background, text-foreground, etc.) for styling.
+- Do not add inline style= attributes.
